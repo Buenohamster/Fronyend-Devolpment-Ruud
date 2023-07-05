@@ -1,0 +1,728 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*, *::after, *::before, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 20px;
+    /* font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Raleway",sans-serif; */
+    
+    font-family: 'Raleway', sans-serif;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --oldSlideAmount: 0;
+    --newSlideAmount: 0;
+}
+
+body {
+    /* background-color: gray; */
+    /* overflow: hidden; */
+}
+
+header {
+    background-color: #ddd;
+}
+
+li {
+    list-style: none;
+}
+
+h2 {
+    font-size: clamp(1.65rem, 8vw, 4rem);
+    text-transform: uppercase;
+    border-bottom: 0.05rem solid #dedede;
+    width: 100%;
+    margin: 0;
+}
+
+h3 {
+    white-space: pre-line;
+}
+
+
+header > section {
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    margin: auto;
+
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+header > section ul {
+    
+}
+
+header > section ul li {
+    text-align: center;
+    display: none;
+    color: white;
+    width: clamp(5rem, 90vw, 40rem);
+}
+
+header > section ul li > p:nth-of-type(1) {
+    font-size: 0.9rem;
+    font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+header > section ul li p:nth-of-type(2) {
+    font-size: clamp(1.65rem, 5vw, 3rem);
+    font-weight: 800;
+    text-transform: uppercase;
+    border-bottom: 0.05rem solid #dedede;
+    padding-bottom: 0.5rem;
+    margin-bottom: clamp(0.5rem, 5vw, 2rem);
+}
+
+header > section ul li p span {
+    color: #ffa500;
+}
+
+header > section ul li p:nth-of-type(3) {
+    font-size: clamp(0.9rem, 5vw, 1.5rem);
+    margin-bottom: 1rem;
+}
+
+header > section ul li a p {
+    padding: 0.5rem;
+    background-color: #ffa500;
+    width: 9rem;
+    margin: auto;
+    /* display: none; */
+}
+
+/* header > section ul li:nth-of-type(1) {
+    background-image: url(../media/images/idea.jpg);
+} */
+
+@keyframes animatedBackground {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: 100% 0;
+    }
+}
+
+header {
+    /* width: 200px;
+    height: 200px; */
+    background-image: url(../media/images/ict.jpg);
+    background-size: cover;
+    background-position: 0px 0px;
+    background-repeat: repeat-x;
+    animation: animatedBackground 50s linear infinite alternate;
+}
+
+.currentSlide {
+    display: block;
+    animation-duration: 8000ms;
+    animation-name: slideInFromTop;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slideInFromTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    15% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    85% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+}
+    
+
+
+nav {
+    overflow: hidden;
+    background-color: #333;
+    /* position: relative; */
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  
+  /* Hide the links inside the navigation menu (except for logo/home) */
+nav ul {
+    display: none;
+}
+  
+  /* Style navigation menu links */
+nav a {
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 1rem;
+    display: block;
+}
+  
+  /* Style the hamburger menu */
+nav > a:last-of-type {
+    /* background: black; */
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 25%;
+    /* margin: auto; */
+}
+  
+  /* Add a grey background color on mouse-over */
+nav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+  
+main {
+    display: grid;
+    width: 100vw;
+    margin: auto;
+    gap: 2rem;
+    /* display: none; */
+}
+
+main > a:last-child {
+    /* display: none; */
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 3rem;
+    height: 3rem;
+    transform: rotate(90deg);
+    background-color: #898989;
+    border-radius: 50%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    font-weight: 800;
+    color: white;
+    margin: 1.5rem;
+    font-size: 2rem;
+    text-align: center;
+    text-decoration: none;
+}
+
+main section section:nth-of-type(1) {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem 0 3rem 0;
+}
+
+main section section:nth-of-type(1) h3 {
+    position: absolute;
+    line-height: clamp(4rem, 10vw, 6rem);
+    position: absolute; 
+    left: 0; 
+    right: 0; 
+    margin: auto;
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: #7c7c7c;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+main section > section:nth-of-type(1) span {
+    border: 0;
+    clip: rect(1px 1px 1px 1px);
+    /* clip; rect(1px, 1px, 1px, 1px); */
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px; 
+}
+
+main section > p {
+    font-size: clamp(0.8rem, 5vw, 1.05rem);
+    color: #7c7c7c;
+    width: clamp(5rem, 95vw, 65.5em);
+    margin: auto;
+    line-height: 1.12rem;
+    margin-top: 0.5rem;
+    white-space: pre-line;
+    margin-bottom: 1rem;
+}
+
+/* ========================================================== */
+/* ================ First section "Over ons" ================*/
+/* ========================================================== */
+main section:nth-of-type(1) {
+    text-align: center;
+    width: 95vw;
+    margin: auto;
+}
+
+main section:nth-of-type(1) img {
+    margin-top: 0.5rem;
+    width: clamp(5rem, 90vw, 23.7em);
+}
+
+
+/* ========================================================== */
+/* ========== Second section "Meedenken & Meedoen" ==========*/
+/* ========================================================== */
+main > section:nth-of-type(2) {
+    width: 95vw;
+    margin: auto;
+    /* margin-bottom: 2rem; */
+}
+
+main > section:nth-of-type(2) ul {
+    display: grid;
+    /* position: absolute;
+    top: 0; */
+    /* gap: 1rem; */
+}
+
+main > section:nth-of-type(2) ul li {
+    display: grid;
+    grid-template-columns: 100px auto;
+    grid-template-areas:
+        "img title title"
+        "img description description";
+    column-gap: 1rem;
+    row-gap: 0.3rem;
+    padding: 2rem 0;
+    border-top: 0.051rem solid #dedede;
+    width: 92vw;
+    margin: auto;
+    height: 100%;
+}
+
+main > section:nth-of-type(2) ul li img {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    grid-area: img;
+    animation-name: un-rotate;
+    animation-duration: 1000ms;
+}
+
+main > section:nth-of-type(2) ul li img:hover {
+    transform: rotate(360deg);
+    /* animation: alternate; */
+    animation-name: rotate;
+    animation-duration: 1000ms;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes un-rotate {
+    0% {
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+main > section:nth-of-type(2) ul li h3 {
+    grid-area: title;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+main > section:nth-of-type(2) ul li p {
+    grid-area: description;
+    font-size: 0.7rem;
+    color: #898989;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    white-space: pre-line;
+    line-height: 0.9rem;
+}
+
+
+/* =========================================================== */
+/* ============== Third section "Onze diensten" ==============*/
+/* =========================================================== */
+main section:nth-of-type(3) {
+    text-align: center;
+    width: 100vw;
+    overflow: hidden;
+    margin: auto;
+}
+
+main section:nth-of-type(3) section:nth-of-type(2) {
+    /* margin: auto; */
+    /* width: fit-content; */
+    width: 90vw;
+    margin: auto;
+}
+
+main section:nth-of-type(3) section {
+    margin: 0 auto 3rem auto;
+}
+
+main section:nth-of-type(3) section:nth-of-type(2) ul:nth-of-type(1) {
+    /* width: 100%; */
+    display: flex;
+    overflow: hidden;
+    /* gap: 1rem; */
+    margin: auto;
+    width: clamp(10rem, 90vw, 29.25rem);
+}
+
+main section:nth-of-type(3) section:nth-of-type(2) ul:nth-of-type(1) li {
+    transform: translateX(var(--newSlideAmount));
+    transition: 0.5s;
+}
+
+
+main section:nth-of-type(3) section:nth-of-type(2) ul:nth-of-type(1) h3 {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 1.4rem;
+    font-weight: 300;
+}
+
+main section:nth-of-type(3) section:nth-of-type(2) ul:nth-of-type(1) p {
+    color: #7c7c7c;
+    line-height: 1.12rem;
+    margin-top: 0.5rem;
+    white-space: pre-line;
+    font-size: 0.8rem;
+}
+
+
+main section:nth-of-type(3) section:nth-of-type(2) ul:nth-of-type(2) {
+    color: black;
+    display: grid;
+    position: absolute;
+    transform: translateY(-8.3rem);
+    width: 90vw;
+}
+
+main section:nth-of-type(3) section:nth-of-type(2) ul:nth-of-type(2) a:nth-of-type(1) {
+    position: absolute;
+    width: 1.5rem;
+    text-decoration: none;
+    color: black;
+}
+
+main section:nth-of-type(3) section:nth-of-type(2) ul:nth-of-type(2) a:nth-of-type(2) {
+    right: 0;
+    position: absolute;
+    text-decoration: none;
+    color: black;
+}
+
+main section:nth-of-type(3) section:nth-of-type(2) ul:nth-of-type(2) a p {
+    font-weight: 500;
+    font-size: 2rem;
+}
+
+main section:nth-of-type(3) section:nth-of-type(2) ul:nth-of-type(1) li img {
+    width: clamp(10rem, 90vw, 29.25rem);
+
+}
+
+main section:nth-of-type(3) > ul {
+    margin-top: 3rem;
+    display: grid;
+    gap: 2rem;
+}
+
+main section:nth-of-type(3) > ul li {
+    width: 90vw;
+    margin: auto;
+}
+
+main section:nth-of-type(3) > ul li:hover h4 {
+    color: #ffa500;
+}
+
+main section:nth-of-type(3) > ul li:hover:nth-of-type(1) img {
+    content: url("../media/images/network-light.PNG");
+}
+
+main section:nth-of-type(3) > ul li:hover:nth-of-type(2) img {
+    content: url("../media/images/flag-light.PNG");
+}
+
+main section:nth-of-type(3) > ul li:hover:nth-of-type(3) img {
+    content: url("../media/images/speaker-light.PNG");
+}
+
+main section:nth-of-type(3) > ul li:hover:nth-of-type(4) img {
+    content: url("../media/images/video-light.PNG");
+}
+
+main section:nth-of-type(3) > ul li img {
+    /* height: 1rem; */
+    height: 2.5rem;
+}
+
+main section:nth-of-type(3) > ul li h4 {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 0.85rem;
+    font-weight: 550;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+    color: #222222;
+}
+
+main section:nth-of-type(3) > ul li p {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 0.7rem;
+    font-weight: 300;
+    margin-top: 0.5rem;
+    color: #898989;
+}
+
+
+
+
+/* =========================================================== */
+/* =========== Fourth section "Voor wie werken we" ===========*/
+/* =========================================================== */
+main section:nth-of-type(4) {
+    text-align: center;
+}
+
+main section:nth-of-type(4) section {
+    width: 90vw;
+    margin: auto;
+    margin-top: 2rem;
+    margin-bottom: 3.5rem;
+}
+
+main section:nth-of-type(4) section h2 {
+    margin-top: 0.3rem;
+}
+
+main section:nth-of-type(4) section h3 {
+    line-height: 6rem;
+}
+
+main section:nth-of-type(4) > ul:nth-of-type(1) {
+    display: grid;
+    gap: 0.5rem;
+    /* max-width: 5rem; */
+}
+
+main section:nth-of-type(4) > ul:nth-of-type(1) li {
+    
+    width: clamp(10rem, 90vw, 10rem);
+
+    margin: auto;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+main section:nth-of-type(4) > ul:nth-of-type(1) li a {
+    text-decoration: none;
+    background-color: #ffa500;
+}
+
+main section:nth-of-type(4) > ul:nth-of-type(1) li a p {
+    /* margin-bottom: 0.5rem; */
+    font-size: 0.6rem;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0.5rem;
+    text-transform: uppercase;
+}
+
+main section:nth-of-type(4) > ul:nth-of-type(2) {
+    background-color: #938b8a;
+    margin-top: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* min-width: 300px; */
+    /* flex-direction: column; */
+}
+
+main section:nth-of-type(4) > ul:nth-of-type(2) > li {
+    min-width: 375px;
+    height: 10rem;
+    /* margin: auto; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main section:nth-of-type(4) > ul:nth-of-type(2) li:hover > ul{
+    background-color: rgba(0, 0, 0, 0.8);
+    /* opacity: 0.5; */
+    /* display: block; */
+    /* width: 100%; */
+    display: grid;
+    /* display: none; */
+    justify-content: center;
+    align-items: center;
+
+    animation-name: fade-in;
+    animation-duration: 500ms;
+}
+
+main section:nth-of-type(4) > ul:nth-of-type(2) li > ul {
+    animation-name: fade-out;
+    animation-duration: 500ms;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    from {
+        /* display: grid; */
+        opacity: 1;
+    } to {
+        opacity: 0;
+        display: none;
+    }
+}
+
+main section:nth-of-type(4) > ul:nth-of-type(2) li > ul:hover > li {
+    /* display: block; */
+}
+
+/* main section:nth-of-type(4) > ul:nth-of-type(2) li:hover */
+
+main section:nth-of-type(4) > ul:nth-of-type(2) li img {
+    max-height: 150px;
+    max-width: 250px;
+    height: auto;
+}
+
+main section:nth-of-type(4) > ul:nth-of-type(2) li ul {
+    display: none;
+    position: absolute;
+    height: 10rem;
+    width: 18.75rem;
+    /* display: grid; */
+    justify-content: center;
+    align-items: center;
+    /* color: pink; */
+
+    animation-name: fade-out;
+    animation-duration: 500ms;
+}
+
+main section:nth-of-type(4) > ul:nth-of-type(2) li ul li p:nth-of-type(1) {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 600;
+    opacity: 1;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+main section:nth-of-type(4) > ul:nth-of-type(2) li ul li p:nth-of-type(2) {
+    color: #c4c4c4;
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+/* main section:nth-of-type(4) > ul:nth-of-type(2) li img:hover {
+    opacity: 0.5;
+} */
+
+
+
+
+main section:nth-of-type(5) {
+    text-align: center;
+}
+
+@media (min-width: 760px) {
+    nav {
+        display: flex;
+    }
+
+    nav ul {
+        display: flex;
+        position: absolute;
+        right: 0;
+        height: 100%;
+        /* flex-direction: row; */
+        
+    }
+
+    nav ul li a {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 1rem;
+    }
+
+    nav a:nth-of-type(2) {
+        display: none;
+    }
+
+    main > section:nth-of-type(3) > ul {
+        max-width: clamp(20rem, 90vw, 50rem);
+        margin: auto;
+        margin-top: 4rem;
+        display: flex;
+    }
+
+    main > section:nth-of-type(3) > ul li {
+        height: 100%;
+        margin: 0;
+    }
+}
+
+@media (min-width: 990px) {
+    main > section:nth-of-type(2) {
+        margin-bottom: 2rem;
+    }
+
+    main > section:nth-of-type(2) ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+    }
+
+    main > section:nth-of-type(2) ul li {
+        width: 40vw;
+        margin: auto;
+        top: 0;
+    }
+}
+
+.innovatie {
+    display: none;
+}
+
+main section:nth-of-type(4) > ul:nth-of-type(2) > li .innovatie {
+    display: none;
+    opacity: 1;
+}
